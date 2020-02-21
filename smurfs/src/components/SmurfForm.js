@@ -23,9 +23,10 @@ const AddSmurfForm = (props) => {
   const [height, setHeight] = useState('');
 
   const onSubmit = () => {
+    let newAge = parseInt(age);
     props.addSmurf({
       name: name,
-      age: age,
+      age: newAge,
       height: height,
       id: cuid()
     });
@@ -34,27 +35,39 @@ const AddSmurfForm = (props) => {
     setHeight('');
   };
 
+  const onNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const onAgeChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  const onHeightChange = (event) => {
+    setHeight(event.target.value);
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
+      <div className="form-input">
         <label htmlFor="name">Name</label>
-        <input id="name" name="name" type="text" ref={register} />
+        <input id="name" name="name" type="text" ref={register} onChange={onNameChange} />
         {errors.name && (
           <span>{errors.name.message}</span>
         )}
       </div>
 
-      <div>
+      <div className="form-input">
         <label htmlFor="age">Age</label>
-        <input id="age" name="age" type="text" ref={register} />
+        <input id="age" name="age" type="text" ref={register} onChange={onAgeChange} />
         {errors.age && (
           <span>{errors.age.message}</span>
         )}
       </div>
 
-      <div>
+      <div className="form-input">
         <label htmlFor="height">Height</label>
-        <input id="height" name="height" type="text" ref={register} />
+        <input id="height" name="height" type="text" ref={register} onChange={onHeightChange} />
         {errors.height && (
           <span>{errors.height.message}</span>
         )}
