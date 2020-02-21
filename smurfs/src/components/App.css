@@ -28,8 +28,19 @@
   to { transform: rotate(360deg); }
 }
 
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   font-size: 3rem;
+  font-family: 'Knewave';
+}
+
+img {
+  width: 5%;
+  margin: 1%;
 }
 
 h3 {

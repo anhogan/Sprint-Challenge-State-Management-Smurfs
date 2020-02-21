@@ -1,7 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { gsap } from 'gsap';
 
 const Smurfs = (props) => {
+  const tween = gsap.to(".image", {
+    duration: 2, 
+    x: 400, 
+    rotation: 360, 
+    ease: "none", 
+    paused: true
+  });
+
   return (
     <div className="smurfs-container">
       {props.isFetching ? (
@@ -9,7 +18,7 @@ const Smurfs = (props) => {
           <h3>Fetching Smurfs...</h3>
         </div>
       ) : (
-        <div className="smurf-list">
+        <div className="smurf-list" onClick={tween.play()}>
           {props.smurfs.map((smurf) => (
             <div key={smurf.id} className="smurf">
               <h3 className="smurf-name">{smurf.name}</h3>
