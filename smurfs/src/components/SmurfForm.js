@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
-import cuid from 'cuid';
 import { addSmurf } from '../actions/index';
 import { connect } from 'react-redux';
 
@@ -27,8 +26,7 @@ const AddSmurfForm = (props) => {
     props.addSmurf({
       name: name,
       age: newAge,
-      height: height,
-      id: cuid()
+      height: height
     });
     setName('');
     setAge('');

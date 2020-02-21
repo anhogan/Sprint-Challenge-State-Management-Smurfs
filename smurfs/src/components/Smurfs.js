@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { gsap } from 'gsap';
+import { removeSmurf } from '../actions/index';
 
 const Smurfs = (props) => {
   const tween = gsap.to(".image", {
@@ -24,6 +25,7 @@ const Smurfs = (props) => {
               <h3 className="smurf-name">{smurf.name}</h3>
               <p>Age: {smurf.age}</p>
               <p>Height: {smurf.height}</p>
+              <button className="remove" onClick={() => removeSmurf(smurf)}>Remove from Village</button>
             </div>
           ))}
         </div>
@@ -41,4 +43,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(Smurfs);
+export default connect(mapStateToProps, { removeSmurf })(Smurfs);

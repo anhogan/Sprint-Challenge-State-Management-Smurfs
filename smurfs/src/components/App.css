@@ -67,7 +67,7 @@ p {
 
 .smurf {
   width: 20%;
-  padding: 1%;
+  padding: .5%;
   margin: 1%;
   border: 2px solid white;
   border-radius: 5px;
@@ -121,4 +121,18 @@ button:hover {
 span {
   color: red;
   font-size: .6rem;
+}
+
+.remove {
+  font-size: .6rem;
+  background: red;
+  border: 1px solid white;
+  color: white;
+  margin-top: 6%;
+  margin-left: 60%;
+}
+
+.remove:hover {
+  background: white;
+  color: red;
 }
