@@ -10,8 +10,6 @@ const validationSchema = Yup.object().shape({
     .min(3, 'Name must be at least 3 characters')
     .required('The smurf must have a name'),
   age: Yup.number()
-    .min(1, 'Age must be at least 1')
-    .positive('Age must be a positive number')
     .required('The smurf must have an age'),
   height: Yup.string()
     .required('The smurf must have a height')
@@ -24,8 +22,7 @@ const AddSmurfForm = (props) => {
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
 
-  const onSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = () => {
     props.addSmurf({
       name: name,
       age: age,
