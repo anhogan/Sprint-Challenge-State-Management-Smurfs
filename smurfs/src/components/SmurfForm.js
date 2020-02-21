@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import cuid from 'cuid';
@@ -18,7 +18,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const AddSmurfForm = (props) => {
-  const { register, handleSubmit, errors } = useForm({ validationSchema: ValidationSchema });
+  const { register, handleSubmit, errors } = useForm({ validationSchema: validationSchema });
 
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
