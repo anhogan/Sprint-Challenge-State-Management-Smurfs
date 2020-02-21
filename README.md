@@ -23,10 +23,31 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+Context API helps solve the props drilling problem in complex applications by being able to call the prop components directly in the file where you need access to it without having to step down the ladder.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions: used to modify application state by dispatching designated action creators to a reducer
+
+Reducers: receives an action and updates state according to the type and payload that gets passed into the function as arguments
+
+Store: where the initial state of the application is kept. Store is read-only and is known as the single source of truth because it’s immutable. When a reducer updates state, it creates a copy of the original store and and modifies the copy.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state persists throughout the various components, even if they are modifying state for actions. This helps when passing down props to ensure that the correct data is coming through. 
+Component state can be mutated and that affects every connected piece calling props from the “original” state object.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-Thunk is a middleware that allows us to perform asynchronous actions (such as API calls). Within the action creators it allows us to dispatch different actions based on the response from the API call (i.e. if it succeeds versus if it fails) and send those to the reducer.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+My favorite state management system is Redux because the flow feels more natural (store > reducer and initialState > actions > action creators > return to the reducer to write out the functions). From here it’s a simple mapStateToProps and importing of the necessary action creators in the files where they are used. As a developer this feels more stable and like I have more control over where I’m using each component instead of still having to manage props at the App level.
+Context feels like it could get hard to manage in a bigger application with multiple createContext calls and figuring out how to correctly wrap props around the imported components so all state passes correctly.
+
 
 ## Project Set Up
 
